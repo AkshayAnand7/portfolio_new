@@ -256,11 +256,11 @@ function applyTilt(el, { maxX = 6, maxY = 8, scale = 1.02, perspective = 1200 } 
     const yPct = (e.clientY - r.top)  / r.height - 0.5;
     const rX = -yPct * maxX * 2;   // invert Y for natural feel
     const rY =  xPct * maxY * 2;
-    el.style.transform = `translateY(var(--para-y, 0px)) perspective(${perspective}px) rotateX(${rX}deg) rotateY(${rY}deg) scale(${scale})`;
+    el.style.transform = `perspective(${perspective}px) rotateX(${rX}deg) rotateY(${rY}deg) scale(${scale})`;
   });
   el.addEventListener('mouseleave', () => {
     el.style.transition = 'transform 0.6s cubic-bezier(0.16,1,0.3,1)';
-    el.style.transform  = `translateY(var(--para-y, 0px)) perspective(${perspective}px) rotateX(0deg) rotateY(0deg) scale(1)`;
+    el.style.transform  = `perspective(${perspective}px) rotateX(0deg) rotateY(0deg) scale(1)`;
     setTimeout(() => { el.style.transition = ''; }, 650);
   });
 }
@@ -296,9 +296,8 @@ if (heroSection) {
     const hmy = e.clientY - top  - height / 2;
     heroLayers.forEach(({ el, factor }) => {
       if (!el) return;
-      const baseY = parseFloat(el.style.getPropertyValue('--para-y') || '0');
       el.style.transform = el.classList.contains('hero-watermark')
-        ? `translate(calc(-50% + ${hmx * factor}px), calc(-52% + ${hmy * factor}px + ${baseY}px))`
+        ? `translate(calc(-50% + ${hmx * factor}px), calc(-52% + ${hmy * factor}px))`
         : `translate(${hmx * factor}px, ${hmy * factor}px)`;
     });
   });
@@ -308,9 +307,8 @@ if (heroSection) {
       if (!el) return;
       el.style.transition = 'transform 1.2s cubic-bezier(0.16,1,0.3,1)';
       // Reset transforms to neutral position
-      const baseY = parseFloat(el.style.getPropertyValue('--para-y') || '0');
       if (el.classList.contains('hero-watermark')) {
-        el.style.transform = `translate(-50%, calc(-52% + ${baseY}px))`;
+        el.style.transform = `translate(-50%, -52%)`;
       } else {
         el.style.transform = `translate(0px, 0px)`;
       }

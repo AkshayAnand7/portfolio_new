@@ -226,11 +226,11 @@ section.section-in { opacity: 1; }
 
 /* ── PARALLAX DEPTH ── */
 [data-speed]:not(.hero-orb) {
-  will-change: transform;
-  transform: translateY(var(--para-y, 0px));
+  will-change: translate;
+  translate: 0 var(--para-y, 0px);
 }
 .hero-watermark[data-speed] {
-  transform: translate(-50%, calc(-52% + var(--para-y, 0px)));
+  transform: translate(-50%, -52%);
 }
 
 /* ── 3D DEPTH UTILITIES ── */
@@ -241,17 +241,16 @@ section.section-in { opacity: 1; }
 /* ── REVEAL ANIMATION ── */
 .rr {
   opacity: 0;
-  translate: 0 28px;
-  rotate: x 4deg;
-  transition: opacity .85s var(--ease), translate .85s var(--ease), rotate .85s var(--ease);
+  transform: translateY(28px) rotateX(4deg);
+  transition: opacity .85s var(--ease), transform .85s var(--ease);
 }
 .rr.up {
   opacity: 1;
-  translate: 0 0;
-  rotate: x 0deg;
+  transform: translateY(0) rotateX(0deg);
 }
 .rr.done {
-  /* Remove transition after reveal so it doesn't accidentally interfere. */
+  /* Remove transform transition after reveal so parallax updates are instant.
+     Keep opacity transition for any future fades. */
   transition: opacity .85s var(--ease) !important;
 }
 .rr.d1{transition-delay:.08s} .rr.d2{transition-delay:.16s} .rr.d3{transition-delay:.24s}
@@ -260,7 +259,7 @@ section.section-in { opacity: 1; }
 /* ── 3D CARD BASE ── */
 .stat-card, .sk-col, .c-card, .vpill {
   will-change: transform;
-  transition: transform .4s cubic-bezier(.16,1,.3,1), box-shadow .4s, border-color .4s;
+  transition: box-shadow .4s, border-color .4s; /* removed transform transition to fix parallax/tilt lag */
 }
 
 
@@ -324,8 +323,10 @@ section.section-in { opacity: 1; }
 .proj-desc  { font-size:.88rem; color:var(--stone-light); line-height:1.8; max-width:560px; margin-bottom:1.25rem; }
 .proj-tags  { display:flex; gap:.45rem; flex-wrap:wrap; }
 .proj-tag   { font-family:var(--mono); font-size:.67rem; letter-spacing:.05em; padding:.26rem .62rem; background:var(--cream-deeper); border:1px solid var(--border); border-radius:3px; color:var(--stone-light); }
-.proj-arrow { width:46px; height:46px; border:1px solid var(--border); border-radius:50%; display:flex; align-items:center; justify-content:center; color:var(--stone-faint); flex-shrink:0; margin-top:.2rem; transition:border-color .3s var(--ease), color .3s var(--ease), background .3s var(--ease), transform .3s var(--ease); }
-.proj-row:hover .proj-arrow { border-color:var(--accent); color:var(--accent); transform:rotate(45deg) translateZ(6px); background:var(--accent-bg); }
+.proj-arrow { width:46px; height:46px; border:1px solid var(--border); border-radius:50%; display:flex; align-items:center; justify-content:center; color:var(--stone-faint); flex-shrink:0; margin-top:.2rem; transition:border-color .3s var(--ease), color .3s var(--ease), background .3s var(--ease); }
+.proj-row:hover .proj-arrow { border-color:var(--accent); color:var(--accent); background:var(--accent-bg); }
+.proj-arrow svg { transition: transform .3s var(--ease); }
+.proj-row:hover .proj-arrow svg { transform: rotate(45deg) translateZ(6px); }
 
 
 /* ── JOURNEY ── */
