@@ -54,7 +54,7 @@ window.addEventListener('mousemove', e => {
     document.body.style.cursor = 'none';
     // Also hide cursor on all interactive elements
     const style = document.createElement('style');
-    style.textContent = '*, *::before, *::after { cursor: none !important; }';
+    style.textContent = '*:not(.resume-overlay):not(.resume-overlay *), *::before, *::after { cursor: none !important; } .resume-overlay, .resume-overlay * { cursor: auto !important; } .resume-overlay button, .resume-overlay a { cursor: pointer !important; }';
     style.id = 'hide-native-cursor';
     document.head.appendChild(style);
     // Snap ring to current position (no lag from 0,0)

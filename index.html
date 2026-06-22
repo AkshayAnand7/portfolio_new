@@ -35,7 +35,10 @@
     <li><a href="#journey">Journey</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <a href="mailto:akshayanandmp7@gmail.com" class="nav-hire">Hire me</a>
+  <div class="nav-actions">
+    <a href="#" onclick="openResume();return false;" class="nav-resume">Resume</a>
+    <a href="mailto:akshayanandmp7@gmail.com" class="nav-hire">Hire me</a>
+  </div>
 </nav>
 
 <!-- ── HERO ── -->
@@ -145,7 +148,7 @@
           <div class="sk-item"><span class="sk-bullet"></span><span class="sk-name">Next.js 14+</span></div>
           <div class="sk-item"><span class="sk-bullet"></span><span class="sk-name">TypeScript</span></div>
           <div class="sk-item"><span class="sk-bullet"></span><span class="sk-name">Tailwind CSS</span></div>
-          <div class="sk-item"><span class="sk-bullet"></span><span class="sk-name">Framer Motion</span></div>
+          <div class="sk-item"><span class="sk-bullet"></span><span class="sk-name">HTML</span></div>
         </div>
       </div>
       <div class="sk-col rr d2" data-speed="0.05">
@@ -154,9 +157,7 @@
         <p>Scalable architectures and secure APIs.</p>
         <div class="sk-list">
           <div class="sk-item"><span class="sk-bullet"></span><span class="sk-name">Node.js</span></div>
-          <div class="sk-item"><span class="sk-bullet"></span><span class="sk-name">Express</span></div>
           <div class="sk-item"><span class="sk-bullet"></span><span class="sk-name">Python</span></div>
-          <div class="sk-item"><span class="sk-bullet"></span><span class="sk-name">REST &amp; GraphQL</span></div>
           <div class="sk-item"><span class="sk-bullet"></span><span class="sk-name">JWT &amp; OAuth</span></div>
         </div>
       </div>
@@ -165,8 +166,7 @@
         <h3>Infrastructure</h3>
         <p>Storage, state, and cloud deployments.</p>
         <div class="sk-list">
-          <div class="sk-item"><span class="sk-bullet"></span><span class="sk-name">PostgreSQL</span></div>
-          <div class="sk-item"><span class="sk-bullet"></span><span class="sk-name">MongoDB</span></div>
+          <div class="sk-item"><span class="sk-bullet"></span><span class="sk-name">MySQL</span></div>
           <div class="sk-item"><span class="sk-bullet"></span><span class="sk-name">Supabase</span></div>
           <div class="sk-item"><span class="sk-bullet"></span><span class="sk-name">AWS</span></div>
           <div class="sk-item"><span class="sk-bullet"></span><span class="sk-name">Docker</span></div>
@@ -180,8 +180,6 @@
           <div class="sk-item"><span class="sk-bullet"></span><span class="sk-name">Agentic AI</span></div>
           <div class="sk-item"><span class="sk-bullet"></span><span class="sk-name">LLMs</span></div>
           <div class="sk-item"><span class="sk-bullet"></span><span class="sk-name">Power BI</span></div>
-          <div class="sk-item"><span class="sk-bullet"></span><span class="sk-name">SQL Analytics</span></div>
-          <div class="sk-item"><span class="sk-bullet"></span><span class="sk-name">Data Modeling</span></div>
         </div>
       </div>
     </div>
@@ -197,6 +195,7 @@
     <h2 class="s-heading rr d1" data-speed="0.05">Selected<br/><em>Projects</em></h2>
     <div class="proj-list">
 
+      <a href="https://muskymisty.in" target="_blank" class="proj-link" rel="noopener noreferrer">
       <div class="proj-row rr d1">
         <div class="proj-num">01</div>
         <div>
@@ -206,15 +205,17 @@
           </div>
           <p class="proj-desc">A premium e-commerce and brand experience platform for a fragrance business. Elegant design, seamless user journeys, and conversions that matter.</p>
           <div class="proj-tags">
-            <span class="proj-tag">Next.js</span>
-            <span class="proj-tag">React</span>
-            <span class="proj-tag">Tailwind CSS</span>
+            <span class="proj-tag">HTML</span>
+            <span class="proj-tag">CSS</span>
+            <span class="proj-tag">JavaScript</span>
+            <span class="proj-tag">Vercel</span>
           </div>
         </div>
         <div class="proj-arrow" data-speed="0.04">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12L12 4M12 4H6M12 4v6"/></svg>
         </div>
       </div>
+      </a>
 
       <div class="proj-row rr d2">
         <div class="proj-num">02</div>
@@ -402,8 +403,46 @@
 <!-- ── FOOTER ── -->
 <footer>
   <div class="foot-txt">© 2025 <em>Akshay Anand.</em> Crafted with intention.</div>
-  <div class="foot-txt">Built with Next.js · Deployed on Vercel</div>
 </footer>
+
+<!-- ── RESUME OVERLAY ── -->
+<div id="resume-overlay" class="resume-overlay">
+  <div class="resume-overlay-topbar">
+    <button class="resume-back-btn" onclick="closeResume()">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      <span>Back to portfolio</span>
+    </button>
+    <a href="Akshayanand_Resume.pdf" download class="resume-dl-btn">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Download
+    </a>
+    <button class="resume-close-x" onclick="closeResume()">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="resume-overlay-body">
+    <iframe id="resume-iframe" class="resume-frame"></iframe>
+  </div>
+</div>
+
+<script>
+function openResume() {
+  const overlay = document.getElementById('resume-overlay');
+  const iframe = document.getElementById('resume-iframe');
+  if (!iframe.src || !iframe.src.includes('.pdf')) {
+    iframe.src = 'Akshayanand_Resume.pdf';
+  }
+  overlay.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeResume() {
+  document.getElementById('resume-overlay').classList.remove('active');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeResume();
+});
+</script>
 
 <!-- Scroll engine & interactions -->
 <script src="main.js"></script>
