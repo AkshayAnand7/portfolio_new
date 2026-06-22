@@ -564,10 +564,14 @@ footer {
 @media (max-width: 600px) {
   section           { padding: 4.5rem 1.25rem; }
   .divider          { margin: 0 1.25rem; }
-  .hero-name        { font-size: clamp(2.5rem, 12vw, 4rem); }
+  .hero-corner      { position: relative; right: auto; top: auto; text-align: left; margin-bottom: 2rem; z-index: 5; padding-top: 1rem; }
+  .hero-eyebrow     { flex-wrap: wrap; line-height: 1.5; gap: 0.5rem; margin-bottom: 1.5rem; }
+  .hero-eyebrow::before { display: none; }
+  .hero-name        { font-size: clamp(2.2rem, 10vw, 4rem); line-height: 1.1; margin-bottom: 1.5rem; }
   .hero-watermark   { font-size: clamp(4rem, 20vw, 7rem); }
   .skills-grid      { grid-template-columns: 1fr; }
   nav, nav.scrolled { padding: 1rem 1.25rem; }
+  .nav-actions      { gap: 1rem; }
   footer            { justify-content: center; text-align: center; padding: 1.5rem; }
   .contact-cta-strip{ padding: 1.75rem; }
   .contact-big      { font-size: clamp(1.8rem, 8vw, 3rem); }
@@ -576,7 +580,7 @@ footer {
 }
 
 @media (max-width: 400px) {
-  .hero-name        { font-size: clamp(2rem, 11vw, 3rem); }
+  .hero-name        { font-size: clamp(1.8rem, 9vw, 3rem); }
   .hero-watermark   { font-size: clamp(3rem, 16vw, 5rem); }
   .s-heading        { font-size: clamp(1.8rem, 6vw, 2.5rem); }
   .proj-title       { font-size: 1.3rem; }
